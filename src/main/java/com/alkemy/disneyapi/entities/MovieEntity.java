@@ -1,6 +1,8 @@
 package com.alkemy.disneyapi.entities;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import org.hibernate.validator.constraints.Range;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -8,9 +10,10 @@ import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
-@Data
 @Entity
 @Table(name = "movies")
+@Getter
+@Setter
 public class MovieEntity {
 
     @Id
@@ -25,6 +28,7 @@ public class MovieEntity {
     @DateTimeFormat(pattern = "yyyy/MM/dd")
     private LocalDateTime creationDate;
 
+    @Range(min = 1, max = 5)
     private Integer rating;
 
     private String image;

@@ -1,14 +1,16 @@
 package com.alkemy.disneyapi.entities;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-@Data
 @Entity
 @Table(name = "characters")
+@Getter
+@Setter
 public class CharacterEntity {
 
     @Id
