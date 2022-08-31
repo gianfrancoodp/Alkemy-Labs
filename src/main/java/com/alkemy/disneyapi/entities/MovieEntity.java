@@ -37,7 +37,7 @@ public class MovieEntity {
     @JoinTable(name = "characters_movies", joinColumns = @JoinColumn(name = "movie_id"), inverseJoinColumns = @JoinColumn(name = "character_id"))
     private Set<CharacterEntity> characters = new HashSet<>();
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "genre_id", insertable = false, updatable = false)
     private GenreEntity genres;
 }

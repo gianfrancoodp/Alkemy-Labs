@@ -1,0 +1,29 @@
+{
+	"info": {
+		"_postman_id": "37bd2ed5-3907-4e36-bdb2-623c2513691c",
+		"name": "Alkemy-Lab-DisneyAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18370734"
+	},
+	"item": [
+		{
+			"name": "Characters",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/characters",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"characters"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

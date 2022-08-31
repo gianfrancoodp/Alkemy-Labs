@@ -22,6 +22,6 @@ public class GenreEntity {
 
     private String image;
 
-    @OneToMany(mappedBy = "genres", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "genres")
     private Set<MovieEntity> movies;
 }
