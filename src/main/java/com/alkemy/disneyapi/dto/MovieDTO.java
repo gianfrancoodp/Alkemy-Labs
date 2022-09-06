@@ -1,12 +1,11 @@
 package com.alkemy.disneyapi.dto;
 
-import com.alkemy.disneyapi.entities.CharacterEntity;
-import com.alkemy.disneyapi.entities.GenreEntity;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.Set;
+import java.util.List;
 
 @Getter
 @Setter
@@ -17,7 +16,7 @@ public class MovieDTO {
     private Date creationDate;
     private Integer rating;
     private String image;
-    private Set<CharacterEntity> characters;
-    private GenreEntity genre;
+    private List<Long> characters = new ArrayList<>();
+    private Long genre;
 
 }
