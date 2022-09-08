@@ -8,13 +8,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("characters")
 public class CharacterController {
 
     @Autowired
-    private ICharacterService characterService; //TODO: Revisar si va IMovieService o MovieService, es importante!!!!
+    private ICharacterService characterService;
 
     @PostMapping
     public ResponseEntity<CharacterDTO> save(@RequestBody CharacterDTO character){

@@ -3,9 +3,9 @@ package com.alkemy.disneyapi.dto;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -16,7 +16,6 @@ public class MovieDTO {
     private Date creationDate;
     private Integer rating;
     private String image;
-    private List<Long> characters = new ArrayList<>();
+    private Set<CharacterDTO> characters = new HashSet<>();
     private Long genre;
-
 }

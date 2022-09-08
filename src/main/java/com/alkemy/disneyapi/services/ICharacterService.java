@@ -3,6 +3,7 @@ package com.alkemy.disneyapi.services;
 import com.alkemy.disneyapi.dto.CharacterDTO;
 
 import java.util.List;
+import java.util.Set;
 
 public interface ICharacterService {
 

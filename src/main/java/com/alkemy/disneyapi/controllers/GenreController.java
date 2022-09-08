@@ -1,6 +1,7 @@
 package com.alkemy.disneyapi.controllers;
 
 import com.alkemy.disneyapi.dto.GenreDTO;
+import com.alkemy.disneyapi.dto.basic.GenreBasicDTO;
 import com.alkemy.disneyapi.services.IGenreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,11 +15,11 @@ import java.util.List;
 public class GenreController {
 
     @Autowired
-    private IGenreService genreService; //TODO: Revisar si va IGenreService o GenreService, es importante!!!!
+    private IGenreService genreService;
 
     @PostMapping
-    public ResponseEntity<GenreDTO> save(@RequestBody GenreDTO genre){
-        GenreDTO newGenre = genreService.save(genre);
+    public ResponseEntity<GenreBasicDTO> save(@RequestBody GenreDTO genre){
+        GenreBasicDTO newGenre = genreService.save(genre);
         return ResponseEntity.status(HttpStatus.CREATED).body(newGenre);
     }
 

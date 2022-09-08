@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class MovieService implements IMovieService {
@@ -26,9 +27,9 @@ public class MovieService implements IMovieService {
     }
 
     @Override
-    public List<MovieDTO> getAll() {
-        List<MovieEntity> moviesEntity = movieRepository.findAll();
-        List<MovieDTO> moviesDTO = movieMapper.movieEntityList2DTOList(moviesEntity);
+    public Set<MovieDTO> getAll() {
+        Set<MovieEntity> moviesEntity = (Set<MovieEntity>)movieRepository.findAll(); // TODO: Revisar!!!
+        Set<MovieDTO> moviesDTO = movieMapper.movieEntityList2DTOList(moviesEntity);
         return moviesDTO;
     }
 
