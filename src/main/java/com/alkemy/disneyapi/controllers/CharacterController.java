@@ -1,14 +1,13 @@
 package com.alkemy.disneyapi.controllers;
 
 import com.alkemy.disneyapi.dto.CharacterDTO;
-import com.alkemy.disneyapi.services.ICharacterService;
+import com.alkemy.disneyapi.dto.services.ICharacterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Set;
 
 @RestController
 @RequestMapping("characters")

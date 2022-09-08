@@ -1,7 +1,9 @@
 package com.alkemy.disneyapi.mapper;
 
 import com.alkemy.disneyapi.dto.CharacterDTO;
+import com.alkemy.disneyapi.dto.basic.CharacterBasicDTO;
 import com.alkemy.disneyapi.entities.CharacterEntity;
+import com.alkemy.disneyapi.entities.MovieEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -65,5 +67,40 @@ public class CharacterMapper {
             entityList.add(characterDTO2Entity(characterDTO));
         }
         return entityList;
+    }
+
+    public Set<CharacterBasicDTO> characterEntityList2BasicDTOList(Set<CharacterEntity> characterEntityList) {
+        Set<CharacterBasicDTO> basicCharacterList = new HashSet<>();
+        for (CharacterEntity characterEntity : characterEntityList){
+            basicCharacterList.add(characterEntity2BasicDTO(characterEntity));
+        }
+        return basicCharacterList;
+    }
+
+    public CharacterBasicDTO characterEntity2BasicDTO (CharacterEntity characterEntity){
+        CharacterBasicDTO characterBasicDTO = new CharacterBasicDTO();
+        characterBasicDTO.setCharacterId(characterEntity.getCharacterId());
+        characterBasicDTO.setName(characterEntity.getName());
+        characterBasicDTO.setAge(characterEntity.getAge());
+        characterBasicDTO.setWeight(characterEntity.getWeight());
+        characterBasicDTO.setHistory(characterEntity.getHistory());
+        characterBasicDTO.setImage(characterEntity.getImage());
+        return characterBasicDTO;
+    }
+
+    public Set<CharacterDTO> generateBasicCharacters(MovieEntity movieEntity) {
+        Set<CharacterDTO> basicCharacters = new HashSet<>();
+        Set<CharacterEntity> charactersEntity = movieEntity.getCharacters();
+        for (CharacterEntity character : charactersEntity){
+            CharacterDTO characterTemp = new CharacterDTO();
+            characterTemp.setCharacterId(character.getCharacterId());
+            characterTemp.setName(character.getName());
+            characterTemp.setAge(character.getAge());
+            characterTemp.setWeight(character.getWeight());
+            characterTemp.setImage(character.getImage());
+            characterTemp.setHistory(character.getHistory());
+            basicCharacters.add(characterTemp);
+        }
+        return basicCharacters;
     }
 }

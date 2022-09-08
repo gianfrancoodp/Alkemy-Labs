@@ -1,14 +1,13 @@
 package com.alkemy.disneyapi.controllers;
 
 import com.alkemy.disneyapi.dto.MovieDTO;
-import com.alkemy.disneyapi.services.IMovieService;
+import com.alkemy.disneyapi.dto.services.IMovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Set;
 
 @RestController
 @RequestMapping("movies")
@@ -24,8 +23,8 @@ public class MovieController {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<Set<MovieDTO>> getAll(){
-        Set<MovieDTO> movies = movieService.getAll();
+    public ResponseEntity<List<MovieDTO>> getAll(){
+        List<MovieDTO> movies = movieService.getAll();
         return ResponseEntity.ok().body(movies);
     }
 

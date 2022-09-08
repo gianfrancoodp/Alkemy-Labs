@@ -1,4 +1,4 @@
-package com.alkemy.disneyapi.services;
+package com.alkemy.disneyapi.dto.services;
 
 import com.alkemy.disneyapi.dto.GenreDTO;
 import com.alkemy.disneyapi.dto.basic.GenreBasicDTO;

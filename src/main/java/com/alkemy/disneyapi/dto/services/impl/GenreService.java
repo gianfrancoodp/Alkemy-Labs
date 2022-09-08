@@ -1,13 +1,11 @@
-package com.alkemy.disneyapi.services.impl;
+package com.alkemy.disneyapi.dto.services.impl;
 
 import com.alkemy.disneyapi.dto.GenreDTO;
-import com.alkemy.disneyapi.dto.MovieDTO;
 import com.alkemy.disneyapi.dto.basic.GenreBasicDTO;
 import com.alkemy.disneyapi.entities.GenreEntity;
-import com.alkemy.disneyapi.entities.MovieEntity;
 import com.alkemy.disneyapi.mapper.GenreMapper;
 import com.alkemy.disneyapi.repository.GenreRepository;
-import com.alkemy.disneyapi.services.IGenreService;
+import com.alkemy.disneyapi.dto.services.IGenreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

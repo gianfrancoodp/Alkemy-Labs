@@ -46,6 +46,6 @@ public class MovieEntity {
     private Set<CharacterEntity> characters = new HashSet<>();
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "genre_id", insertable = false, updatable = false)
+    @JoinColumn(name = "genre_id")
     private GenreEntity genre;
 }

@@ -1,15 +1,14 @@
-package com.alkemy.disneyapi.services.impl;
+package com.alkemy.disneyapi.dto.services.impl;
 
 import com.alkemy.disneyapi.dto.CharacterDTO;
 import com.alkemy.disneyapi.entities.CharacterEntity;
 import com.alkemy.disneyapi.mapper.CharacterMapper;
 import com.alkemy.disneyapi.repository.CharacterRepository;
-import com.alkemy.disneyapi.services.ICharacterService;
+import com.alkemy.disneyapi.dto.services.ICharacterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Set;
 
 @Service
 public class CharacterService implements ICharacterService {

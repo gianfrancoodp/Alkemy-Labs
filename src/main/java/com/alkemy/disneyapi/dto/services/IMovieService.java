@@ -1,14 +1,13 @@
-package com.alkemy.disneyapi.services;
+package com.alkemy.disneyapi.dto.services;
 
 import com.alkemy.disneyapi.dto.MovieDTO;
 
 import java.util.List;
-import java.util.Set;
 
 public interface IMovieService {
 
     MovieDTO save(MovieDTO genreDTO);
-    Set<MovieDTO> getAll();
+    List<MovieDTO> getAll();
     MovieDTO update(Long id, MovieDTO movieDTO);
     void delete(Long movieId);
 }
