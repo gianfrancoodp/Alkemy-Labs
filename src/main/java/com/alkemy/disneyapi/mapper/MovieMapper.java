@@ -40,7 +40,7 @@ public class MovieMapper {
         return movieEntity;
     }
 
-    public MovieDTO movieEntity2DTO(MovieEntity movieEntity){
+    public MovieDTO movieEntity2DTO(MovieEntity movieEntity) {
         MovieDTO movieDTO = new MovieDTO();
         movieDTO.setMovieId(movieEntity.getMovieId());
         movieDTO.setTitle(movieEntity.getTitle());
@@ -53,7 +53,7 @@ public class MovieMapper {
         return movieDTO;
     }
 
-    public MovieEntity updateMovieDTO2Entity(MovieDTO movieDTO, MovieEntity movieEntity){
+    public MovieEntity updateMovieDTO2Entity(MovieDTO movieDTO, MovieEntity movieEntity) {
         MovieEntity movieUpdated = new MovieEntity();
         movieUpdated.setMovieId(movieEntity.getMovieId());
         movieUpdated.setTitle(movieDTO.getTitle());
@@ -66,31 +66,39 @@ public class MovieMapper {
         return movieUpdated;
     }
 
-    public List<MovieDTO> movieEntityList2DTOList(List<MovieEntity> movieEntityList){
+    public List<MovieDTO> movieEntityList2DTOList(List<MovieEntity> movieEntityList) {
         List<MovieDTO> dtoList = new ArrayList<>();
-        for (MovieEntity movieEntity : movieEntityList){
+        for (MovieEntity movieEntity : movieEntityList) {
             dtoList.add(movieEntity2DTO(movieEntity));
         }
         return dtoList;
     }
 
-    public List<MovieEntity> movieDTOList2EntityList(List<MovieDTO> movieDTOList){
+    public List<MovieEntity> movieDTOList2EntityList(List<MovieDTO> movieDTOList) {
         List<MovieEntity> entityList = new ArrayList<>();
-        for (MovieDTO movieDTO : movieDTOList){
+        for (MovieDTO movieDTO : movieDTOList) {
             entityList.add(movieDTO2Entity(movieDTO));
         }
         return entityList;
     }
 
-    public List<MovieBasicDTO> movieEntityList2BasicDTOList (Set<MovieEntity> movieEntity){
+    public List<MovieBasicDTO> movieEntityList2BasicDTOList(Set<MovieEntity> movieEntity) {
         List<MovieBasicDTO> dtoBasicList = new ArrayList<>();
-        for (MovieEntity entity :  movieEntity){
+        for (MovieEntity entity : movieEntity) {
             dtoBasicList.add(movieEntity2BasicDTO(entity));
         }
         return dtoBasicList;
     }
 
-    public MovieBasicDTO movieEntity2BasicDTO (MovieEntity movieEntity) {
+    public List<MovieBasicDTO> movieEntityList2BasicDTOList(List<MovieEntity> movieEntity) {
+        List<MovieBasicDTO> dtoBasicList = new ArrayList<>();
+        for (MovieEntity entity : movieEntity) {
+            dtoBasicList.add(movieEntity2BasicDTO(entity));
+        }
+        return dtoBasicList;
+    }
+
+    public MovieBasicDTO movieEntity2BasicDTO(MovieEntity movieEntity) {
         MovieBasicDTO movieBasicDTO = new MovieBasicDTO();
         movieBasicDTO.setMovieId(movieEntity.getMovieId());
         movieBasicDTO.setTitle(movieEntity.getTitle());

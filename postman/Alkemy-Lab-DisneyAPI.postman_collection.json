@@ -38,6 +38,26 @@
 					"response": []
 				},
 				{
+					"name": "Get By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/movies/12",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies",
+								"12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Get All Movies",
 					"request": {
 						"method": "GET",
@@ -52,6 +72,40 @@
 							"path": [
 								"movies",
 								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get By Filters",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/movies?idGenre=1&order=ASC",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "Movie 19",
+									"disabled": true
+								},
+								{
+									"key": "idGenre",
+									"value": "1"
+								},
+								{
+									"key": "order",
+									"value": "ASC"
+								}
 							]
 						}
 					},
@@ -140,6 +194,26 @@
 					"response": []
 				},
 				{
+					"name": "Get By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/characters/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"characters",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Get All Characters",
 					"request": {
 						"method": "GET",
@@ -154,6 +228,46 @@
 							"path": [
 								"characters",
 								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get By Filets",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/characters?movies=30,28,12",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"characters"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "AAAAA",
+									"disabled": true
+								},
+								{
+									"key": "age",
+									"value": "200",
+									"disabled": true
+								},
+								{
+									"key": "movies",
+									"value": "30,28,12"
+								},
+								{
+									"key": "order",
+									"value": "ASC",
+									"disabled": true
+								}
 							]
 						}
 					},
@@ -236,6 +350,26 @@
 							"port": "8080",
 							"path": [
 								"genres"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/genres/11",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"genres",
+								"11"
 							]
 						}
 					},

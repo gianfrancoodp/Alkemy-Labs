@@ -2,6 +2,7 @@ package com.alkemy.disneyapi.mapper;
 
 import com.alkemy.disneyapi.dto.CharacterDTO;
 import com.alkemy.disneyapi.dto.basic.CharacterBasicDTO;
+import com.alkemy.disneyapi.dto.basic.CharacterSlimDTO;
 import com.alkemy.disneyapi.entities.CharacterEntity;
 import com.alkemy.disneyapi.entities.MovieEntity;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,7 @@ public class CharacterMapper {
         characterEntity.setWeight(characterDTO.getWeight());
         characterEntity.setHistory(characterDTO.getHistory());
         characterEntity.setImage(characterDTO.getImage());
-        //characterEntity.setMovies(characterDTO.getMovies());
+        //characterEntity.setMovies(characterDTO.getMovies()); TODO: CORREGIR!!!
         return characterEntity;
     }
 
@@ -77,6 +78,22 @@ public class CharacterMapper {
         return basicCharacterList;
     }
 
+    public List<CharacterBasicDTO> characterEntityList2BasicDTOList(List<CharacterEntity> characterEntityList) {
+        List<CharacterBasicDTO> basicCharacterList = new ArrayList<>();
+        for (CharacterEntity characterEntity : characterEntityList){
+            basicCharacterList.add(characterEntity2BasicDTO(characterEntity));
+        }
+        return basicCharacterList;
+    }
+
+    public List<CharacterSlimDTO> characterEntityList2SlimDTOList(List<CharacterEntity> characterEntityList) {
+        List<CharacterSlimDTO> slimCharacterList = new ArrayList<>();
+        for (CharacterEntity characterEntity : characterEntityList){
+            slimCharacterList.add(characterEntity2SlimDTO(characterEntity));
+        }
+        return slimCharacterList;
+    }
+
     public CharacterBasicDTO characterEntity2BasicDTO (CharacterEntity characterEntity){
         CharacterBasicDTO characterBasicDTO = new CharacterBasicDTO();
         characterBasicDTO.setCharacterId(characterEntity.getCharacterId());
@@ -86,6 +103,14 @@ public class CharacterMapper {
         characterBasicDTO.setHistory(characterEntity.getHistory());
         characterBasicDTO.setImage(characterEntity.getImage());
         return characterBasicDTO;
+    }
+
+    public CharacterSlimDTO characterEntity2SlimDTO (CharacterEntity characterEntity){
+        CharacterSlimDTO characterSlimDTO = new CharacterSlimDTO();
+        characterSlimDTO.setCharacterId(characterEntity.getCharacterId());
+        characterSlimDTO.setName(characterEntity.getName());
+        characterSlimDTO.setImage(characterEntity.getImage());
+        return characterSlimDTO;
     }
 
     public Set<CharacterDTO> generateBasicCharacters(MovieEntity movieEntity) {

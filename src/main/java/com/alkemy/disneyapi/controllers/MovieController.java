@@ -1,7 +1,8 @@
 package com.alkemy.disneyapi.controllers;
 
 import com.alkemy.disneyapi.dto.MovieDTO;
-import com.alkemy.disneyapi.dto.services.IMovieService;
+import com.alkemy.disneyapi.dto.basic.MovieBasicDTO;
+import com.alkemy.disneyapi.services.IMovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,28 +15,42 @@ import java.util.List;
 public class MovieController {
 
     @Autowired
-    private IMovieService movieService; //TODO: Revisar si va IMovieService o MovieService, es importante!!!!
+    private IMovieService movieService;
 
     @PostMapping
-    public ResponseEntity<MovieDTO> save(@RequestBody MovieDTO movie){
+    public ResponseEntity<MovieDTO> save(@RequestBody MovieDTO movie) {
         MovieDTO newMovie = movieService.save(movie);
         return ResponseEntity.status(HttpStatus.CREATED).body(newMovie);
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<MovieDTO>> getAll(){
+    public ResponseEntity<List<MovieDTO>> getAll() {
         List<MovieDTO> movies = movieService.getAll();
         return ResponseEntity.ok().body(movies);
     }
 
+    @GetMapping("/{movieId}")
+    public ResponseEntity<MovieDTO> getById(@PathVariable Long movieId) {
+        MovieDTO result = movieService.getById(movieId);
+        return ResponseEntity.ok().body(result);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<MovieBasicDTO>> getByFilters(@RequestParam(required = false) String title,
+                                                            @RequestParam(required = false) Long idGenre,
+                                                            @RequestParam(required = false, defaultValue = "ASC") String order) {
+        List<MovieBasicDTO> movies = movieService.getByFilters(title, idGenre, order);
+        return ResponseEntity.ok().body(movies);
+    }
+
     @PutMapping("/{movieId}")
-    public ResponseEntity<MovieDTO> update(@PathVariable Long movieId, @RequestBody MovieDTO movieDTO){
+    public ResponseEntity<MovieDTO> update(@PathVariable Long movieId, @RequestBody MovieDTO movieDTO) {
         MovieDTO result = movieService.update(movieId, movieDTO);
         return ResponseEntity.ok().body(result);
     }
 
     @DeleteMapping("/{movieId}")
-    public ResponseEntity<Void> deleteMovie(@PathVariable Long movieId){
+    public ResponseEntity<Void> deleteMovie(@PathVariable Long movieId) {
         movieService.delete(movieId);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }

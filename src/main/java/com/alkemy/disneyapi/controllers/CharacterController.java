@@ -1,7 +1,10 @@
 package com.alkemy.disneyapi.controllers;
 
 import com.alkemy.disneyapi.dto.CharacterDTO;
-import com.alkemy.disneyapi.dto.services.ICharacterService;
+import com.alkemy.disneyapi.dto.MovieDTO;
+import com.alkemy.disneyapi.dto.basic.CharacterBasicDTO;
+import com.alkemy.disneyapi.dto.basic.CharacterSlimDTO;
+import com.alkemy.disneyapi.services.ICharacterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,6 +28,21 @@ public class CharacterController {
     @GetMapping("/all")
     public ResponseEntity<List<CharacterDTO>> getAll(){
         List<CharacterDTO> characters = characterService.getAll();
+        return ResponseEntity.ok().body(characters);
+    }
+
+    @GetMapping("/{characterId}")
+    public ResponseEntity<CharacterDTO> getById(@PathVariable Long characterId){
+        CharacterDTO result = characterService.getById(characterId);
+        return ResponseEntity.ok().body(result);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<CharacterSlimDTO>> getByFilters(@RequestParam(required = false) String name,
+                                                               @RequestParam(required = false) Integer age,
+                                                               @RequestParam(required = false) List<Long> movies,
+                                                               @RequestParam(required = false, defaultValue = "ASC") String order) {
+        List<CharacterSlimDTO> characters = characterService.getByFilters(name, age,movies, order);
         return ResponseEntity.ok().body(characters);
     }
 

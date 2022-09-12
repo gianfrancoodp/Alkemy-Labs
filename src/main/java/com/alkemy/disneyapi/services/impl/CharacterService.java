@@ -1,10 +1,14 @@
-package com.alkemy.disneyapi.dto.services.impl;
+package com.alkemy.disneyapi.services.impl;
 
 import com.alkemy.disneyapi.dto.CharacterDTO;
+import com.alkemy.disneyapi.dto.basic.CharacterBasicDTO;
+import com.alkemy.disneyapi.dto.basic.CharacterSlimDTO;
+import com.alkemy.disneyapi.dto.filters.CharacterFilterDTO;
 import com.alkemy.disneyapi.entities.CharacterEntity;
 import com.alkemy.disneyapi.mapper.CharacterMapper;
 import com.alkemy.disneyapi.repository.CharacterRepository;
-import com.alkemy.disneyapi.dto.services.ICharacterService;
+import com.alkemy.disneyapi.repository.specifications.CharacterSpecification;
+import com.alkemy.disneyapi.services.ICharacterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +21,8 @@ public class CharacterService implements ICharacterService {
     private CharacterMapper characterMapper;
     @Autowired
     private CharacterRepository characterRepository;
+    @Autowired
+    private CharacterSpecification characterSpecification;
 
     public CharacterDTO save(CharacterDTO characterDTO){
         CharacterEntity characterEntity = characterMapper.characterDTO2Entity(characterDTO);
@@ -29,6 +35,21 @@ public class CharacterService implements ICharacterService {
     public List<CharacterDTO> getAll() {
         List<CharacterEntity> characterEntity = characterRepository.findAll();
         List<CharacterDTO> characterDTO = characterMapper.characterEntityList2DTOList(characterEntity);
+        return characterDTO;
+    }
+
+    @Override
+    public List<CharacterSlimDTO> getByFilters(String name, Integer age, List<Long> movies, String order) {
+        CharacterFilterDTO characterFilterDTO = new CharacterFilterDTO(name, age, movies, order);
+        List<CharacterEntity> entities = characterRepository.findAll(characterSpecification.getByFilters(characterFilterDTO));
+        List<CharacterSlimDTO> basicDTOS = characterMapper.characterEntityList2SlimDTOList(entities);
+        return basicDTOS;
+    }
+
+    @Override
+    public CharacterDTO getById(Long characterId) {
+        CharacterEntity characterEntity = characterRepository.getReferenceById(characterId);
+        CharacterDTO characterDTO = characterMapper.characterEntity2DTO(characterEntity);
         return characterDTO;
     }
 

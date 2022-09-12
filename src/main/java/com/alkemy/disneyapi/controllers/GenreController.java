@@ -2,7 +2,7 @@ package com.alkemy.disneyapi.controllers;
 
 import com.alkemy.disneyapi.dto.GenreDTO;
 import com.alkemy.disneyapi.dto.basic.GenreBasicDTO;
-import com.alkemy.disneyapi.dto.services.IGenreService;
+import com.alkemy.disneyapi.services.IGenreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,6 +27,12 @@ public class GenreController {
     public ResponseEntity<List<GenreDTO>> getAll(){
         List<GenreDTO> genres = genreService.getAll();
         return ResponseEntity.ok().body(genres);
+    }
+
+    @GetMapping("/{genreId}")
+    public ResponseEntity<GenreDTO> getById(@PathVariable Long genreId){
+        GenreDTO result = genreService.getById(genreId);
+        return ResponseEntity.ok().body(result);
     }
 
     @PutMapping("/{genreId}")
