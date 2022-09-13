@@ -38,6 +38,28 @@
 					"response": []
 				},
 				{
+					"name": "Add Characters To Movie",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/movies/1/characters/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies",
+								"1",
+								"characters",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Get By Id",
 					"request": {
 						"method": "GET",
@@ -159,6 +181,28 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Remove Character From Movie",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/movies/12/characters/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies",
+								"12",
+								"characters",
+								"1"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -199,7 +243,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/characters/2",
+							"raw": "http://localhost:8080/characters/20",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -207,7 +251,7 @@
 							"port": "8080",
 							"path": [
 								"characters",
-								"2"
+								"20"
 							]
 						}
 					},
@@ -234,7 +278,7 @@
 					"response": []
 				},
 				{
-					"name": "Get By Filets",
+					"name": "Get By Filters",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -390,6 +434,35 @@
 							"path": [
 								"genres",
 								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get By Filters",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/genres?name=love&order=ASC",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"genres"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "love"
+								},
+								{
+									"key": "order",
+									"value": "ASC"
+								}
 							]
 						}
 					},

@@ -53,6 +53,14 @@ public class GenreMapper {
         return dtoList;
     }
 
+    public List<GenreBasicDTO> genreEntityList2BasicDTOList(List<GenreEntity> genreList){
+        List<GenreBasicDTO> basicDTOList = new ArrayList<>();
+        for (GenreEntity genreEntity : genreList){
+            basicDTOList.add(genreEntity2BasicDTO(genreEntity));
+        }
+        return basicDTOList;
+    }
+
     public GenreBasicDTO genreEntity2BasicDTO(GenreEntity genreEntity){
         GenreBasicDTO genreBasicDTO = new GenreBasicDTO();
         genreBasicDTO.setGenreId(genreEntity.getGenreId());

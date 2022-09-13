@@ -5,6 +5,7 @@ import com.alkemy.disneyapi.dto.basic.CharacterBasicDTO;
 import com.alkemy.disneyapi.dto.basic.CharacterSlimDTO;
 import com.alkemy.disneyapi.dto.filters.CharacterFilterDTO;
 import com.alkemy.disneyapi.entities.CharacterEntity;
+import com.alkemy.disneyapi.exception.ParamNotFound;
 import com.alkemy.disneyapi.mapper.CharacterMapper;
 import com.alkemy.disneyapi.repository.CharacterRepository;
 import com.alkemy.disneyapi.repository.specifications.CharacterSpecification;
@@ -13,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class CharacterService implements ICharacterService {
@@ -49,6 +51,9 @@ public class CharacterService implements ICharacterService {
     @Override
     public CharacterDTO getById(Long characterId) {
         CharacterEntity characterEntity = characterRepository.getReferenceById(characterId);
+        if (Objects.isNull(characterEntity)){
+            throw new ParamNotFound("Character ID is not valid!!");
+        }
         CharacterDTO characterDTO = characterMapper.characterEntity2DTO(characterEntity);
         return characterDTO;
     }
@@ -56,6 +61,9 @@ public class CharacterService implements ICharacterService {
     @Override
     public CharacterDTO update(Long id, CharacterDTO characterDTO) {
         CharacterEntity characterEntity = characterRepository.getReferenceById(id);
+        if (Objects.isNull(characterEntity)){
+            throw new ParamNotFound("Character ID is not valid!!");
+        }
         CharacterEntity characterUpdated = characterRepository.save(characterMapper.updateCharacterDTO2Entity(characterDTO, characterEntity));
         CharacterDTO characterDTOUpdated = characterMapper.characterEntity2DTO(characterUpdated);
         return characterDTOUpdated;
@@ -63,6 +71,9 @@ public class CharacterService implements ICharacterService {
 
     @Override
     public void delete(Long characterId) {
+        if (characterId == null){
+            throw new ParamNotFound("Null is not a valid value for the character ID!!");
+        }
         characterRepository.deleteById(characterId);
     }
 

@@ -8,8 +8,14 @@ import java.util.List;
 public interface IGenreService {
 
     GenreBasicDTO save(GenreDTO genreDTO);
+
     List<GenreDTO> getAll();
+
     GenreDTO getById(Long genreId);
+
+    List<GenreBasicDTO> getByFilters(String name, String order);
+
     GenreDTO update(Long id, GenreDTO genreDTO);
+
     void delete(Long id);
 }

@@ -35,6 +35,13 @@ public class GenreController {
         return ResponseEntity.ok().body(result);
     }
 
+    @GetMapping
+    public ResponseEntity<List<GenreBasicDTO>> getByFilters(@RequestParam(required = false) String name,
+                                                            @RequestParam(required = false, defaultValue = "ASC") String order){
+        List<GenreBasicDTO> genres = genreService.getByFilters(name, order);
+        return ResponseEntity.ok().body(genres);
+    }
+
     @PutMapping("/{genreId}")
     public ResponseEntity<GenreDTO> update(@PathVariable Long genreId, @RequestBody GenreDTO genre){
         GenreDTO result = genreService.update(genreId, genre);

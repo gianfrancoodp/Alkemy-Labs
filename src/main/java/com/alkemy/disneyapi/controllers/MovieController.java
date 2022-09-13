@@ -23,6 +23,12 @@ public class MovieController {
         return ResponseEntity.status(HttpStatus.CREATED).body(newMovie);
     }
 
+    @PostMapping("/{movieId}/characters/{characterId}")
+    public ResponseEntity<MovieDTO> addCharacterToMovie(@PathVariable Long movieId, Long characterId) {
+        MovieDTO result = movieService.addCharacterToMovie(movieId, characterId);
+        return ResponseEntity.ok().body(result);
+    }
+
     @GetMapping("/all")
     public ResponseEntity<List<MovieDTO>> getAll() {
         List<MovieDTO> movies = movieService.getAll();
