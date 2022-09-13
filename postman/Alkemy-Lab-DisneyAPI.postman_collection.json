@@ -43,7 +43,7 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/movies/1/characters/5",
+							"raw": "http://localhost:8080/movies/30/characters/22",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -51,9 +51,9 @@
 							"port": "8080",
 							"path": [
 								"movies",
-								"1",
+								"30",
 								"characters",
-								"5"
+								"22"
 							]
 						}
 					},
@@ -65,7 +65,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/movies/12",
+							"raw": "http://localhost:8080/movies/30",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -73,7 +73,7 @@
 							"port": "8080",
 							"path": [
 								"movies",
-								"12"
+								"30"
 							]
 						}
 					},
@@ -188,7 +188,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/movies/12/characters/1",
+							"raw": "http://localhost:8080/movies/30/characters/23",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -196,9 +196,9 @@
 							"port": "8080",
 							"path": [
 								"movies",
-								"12",
+								"30",
 								"characters",
-								"1"
+								"23"
 							]
 						}
 					},

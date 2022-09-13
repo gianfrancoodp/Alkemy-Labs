@@ -42,7 +42,8 @@ public class MovieService implements IMovieService {
         CharacterEntity newCharacter = characterRepository.getReferenceById(characterId);
         movie.getCharacters().add(newCharacter);
         MovieDTO newMovieDTO = movieMapper.movieEntity2DTO(movie);
-        return newMovieDTO;
+        MovieDTO updatedMovie = update(movieId, newMovieDTO);
+        return updatedMovie;
     }
 
     @Override
@@ -95,6 +96,7 @@ public class MovieService implements IMovieService {
         CharacterEntity newCharacter = characterRepository.getReferenceById(characterId);
         movie.getCharacters().remove(newCharacter);
         MovieDTO newMovieDTO = movieMapper.movieEntity2DTO(movie);
-        return newMovieDTO;
+        MovieDTO updatedMovie = update(movieId, newMovieDTO);
+        return updatedMovie;
     }
 }
