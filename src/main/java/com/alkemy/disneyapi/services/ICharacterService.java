@@ -1,7 +1,7 @@
 package com.alkemy.disneyapi.services;
 
 import com.alkemy.disneyapi.dto.CharacterDTO;
-import com.alkemy.disneyapi.dto.basic.CharacterSlimDTO;
+import com.alkemy.disneyapi.dto.basic.CharacterBasicDTO;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ public interface ICharacterService {
 
     List<CharacterDTO> getAll();
 
-    List<CharacterSlimDTO> getByFilters(String name, Integer age, List<Long> movies, String order);
+    List<CharacterBasicDTO> getByFilters(String name, Integer age, List<Long> movies, String order);
 
     CharacterDTO getById(Long characterId);
 

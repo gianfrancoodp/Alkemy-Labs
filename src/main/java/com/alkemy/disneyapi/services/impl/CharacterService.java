@@ -2,7 +2,6 @@ package com.alkemy.disneyapi.services.impl;
 
 import com.alkemy.disneyapi.dto.CharacterDTO;
 import com.alkemy.disneyapi.dto.basic.CharacterBasicDTO;
-import com.alkemy.disneyapi.dto.basic.CharacterSlimDTO;
 import com.alkemy.disneyapi.dto.filters.CharacterFilterDTO;
 import com.alkemy.disneyapi.entities.CharacterEntity;
 import com.alkemy.disneyapi.exception.ParamNotFound;
@@ -26,7 +25,7 @@ public class CharacterService implements ICharacterService {
     @Autowired
     private CharacterSpecification characterSpecification;
 
-    public CharacterDTO save(CharacterDTO characterDTO){
+    public CharacterDTO save(CharacterDTO characterDTO) {
         CharacterEntity characterEntity = characterMapper.characterDTO2Entity(characterDTO);
         CharacterEntity characterEntitySave = characterRepository.save(characterEntity);
         CharacterDTO result = characterMapper.characterEntity2DTO(characterEntitySave);
@@ -41,17 +40,17 @@ public class CharacterService implements ICharacterService {
     }
 
     @Override
-    public List<CharacterSlimDTO> getByFilters(String name, Integer age, List<Long> movies, String order) {
+    public List<CharacterBasicDTO> getByFilters(String name, Integer age, List<Long> movies, String order) {
         CharacterFilterDTO characterFilterDTO = new CharacterFilterDTO(name, age, movies, order);
         List<CharacterEntity> entities = characterRepository.findAll(characterSpecification.getByFilters(characterFilterDTO));
-        List<CharacterSlimDTO> basicDTOS = characterMapper.characterEntityList2SlimDTOList(entities);
+        List<CharacterBasicDTO> basicDTOS = characterMapper.characterEntityList2BasicDTOList(entities);
         return basicDTOS;
     }
 
     @Override
     public CharacterDTO getById(Long characterId) {
         CharacterEntity characterEntity = characterRepository.getReferenceById(characterId);
-        if (Objects.isNull(characterEntity)){
+        if (Objects.isNull(characterEntity)) {
             throw new ParamNotFound("Character ID is not valid!!");
         }
         CharacterDTO characterDTO = characterMapper.characterEntity2DTO(characterEntity);
@@ -61,7 +60,7 @@ public class CharacterService implements ICharacterService {
     @Override
     public CharacterDTO update(Long id, CharacterDTO characterDTO) {
         CharacterEntity characterEntity = characterRepository.getReferenceById(id);
-        if (Objects.isNull(characterEntity)){
+        if (Objects.isNull(characterEntity)) {
             throw new ParamNotFound("Character ID is not valid!!");
         }
         CharacterEntity characterUpdated = characterRepository.save(characterMapper.updateCharacterDTO2Entity(characterDTO, characterEntity));
@@ -71,7 +70,7 @@ public class CharacterService implements ICharacterService {
 
     @Override
     public void delete(Long characterId) {
-        if (characterId == null){
+        if (characterId == null) {
             throw new ParamNotFound("Null is not a valid value for the character ID!!");
         }
         characterRepository.deleteById(characterId);

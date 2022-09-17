@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface CharacterRepository extends JpaRepository<CharacterEntity,Long> {
+public interface CharacterRepository extends JpaRepository<CharacterEntity, Long> {
 
     List<CharacterEntity> findAll(Specification<CharacterEntity> spec);
 

@@ -11,7 +11,7 @@ public class MovieFilterDTO {
     private Long idGenre;
     private String order;
 
-    public MovieFilterDTO(String title, Long idGenre, String order){
+    public MovieFilterDTO(String title, Long idGenre, String order) {
         this.title = title;
         this.idGenre = idGenre;
         this.order = order;
@@ -21,7 +21,7 @@ public class MovieFilterDTO {
         return this.order.compareToIgnoreCase("ASC") == 0;
     }
 
-    public boolean isDESC(){
+    public boolean isDESC() {
         return this.order.compareToIgnoreCase("DESC") == 0;
     }
 }

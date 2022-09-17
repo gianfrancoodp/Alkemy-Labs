@@ -42,7 +42,7 @@ public class GenreService implements IGenreService {
     @Override
     public GenreDTO getById(Long genreId) {
         GenreEntity genreEntity = genreRepository.getReferenceById(genreId);
-        if (Objects.isNull(genreEntity)){
+        if (Objects.isNull(genreEntity)) {
             throw new ParamNotFound("Genre ID is not valid!!");
         }
         GenreDTO genreDTO = genreMapper.genreEntity2DTO(genreEntity);
@@ -60,7 +60,7 @@ public class GenreService implements IGenreService {
     @Override
     public GenreDTO update(Long id, GenreDTO genreDTO) {
         GenreEntity genreEntity = genreRepository.getReferenceById(id);
-        if (Objects.isNull(genreEntity)){
+        if (Objects.isNull(genreEntity)) {
             throw new ParamNotFound("Genre ID is not valid!!");
         }
         GenreEntity genreUpdated = genreRepository.save(genreMapper.updateGenreDTO2Entity(genreDTO, genreEntity));
@@ -70,7 +70,7 @@ public class GenreService implements IGenreService {
 
     @Override
     public void delete(Long genreId) {
-        if (genreId == null){
+        if (genreId == null) {
             throw new ParamNotFound("Null is not a valid value for the genre ID!!");
         }
         genreRepository.deleteById(genreId);

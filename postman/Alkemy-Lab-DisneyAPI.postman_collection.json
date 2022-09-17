@@ -13,10 +13,16 @@
 					"name": "Create Movie",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnaWFuZnJhbmNvb2RwMTk5NUBnbWFpbC5jb20iLCJleHAiOjE2NjM0MjE1ODksImlhdCI6MTY2MzM4NTU4OX0.fqDo24n356XbwdDCTu6nKeL6aYLwxFnGkvfCBNBfM90",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"Movie FINAL\",\r\n    \"creationDate\": \"1995-08-28T23:00:00\",\r\n    \"rating\": 5,\r\n    \"image\": \"Movie FINAL\",\r\n    \"characters\": [\r\n        {\r\n            \"name\": \"Character GIAN\",\r\n            \"age\": 200,\r\n            \"weight\": 100,\r\n            \"history\": \"Nothing to tell right now!\",\r\n            \"image\": \"Character GIAN\"\r\n        },\r\n        {\r\n            \"name\": \"Character CACO\",\r\n            \"age\": 50,\r\n            \"weight\": 5,\r\n            \"history\": \"Nothing to tell right now!\",\r\n            \"image\": \"Character CACO\"\r\n        }\r\n    ],\r\n    \"genre\": 3\r\n}",
+							"raw": "{\r\n    \"title\": \"Star Wars IV\",\r\n    \"creationDate\": \"1978-10-11\",\r\n    \"rating\": 4,\r\n    \"image\": \"https://static.wikia.nocookie.net/esstarwars/images/7/7c/Episode_two_poster.jpg/revision/latest?cb=20060405025053\",\r\n    \"characters\": [\r\n        {\r\n            \"name\": \"Anakin Skywalker\",\r\n            \"age\": 25,\r\n            \"weight\": 75.1,\r\n            \"history\": \"Nothing to tell right now!\",\r\n            \"image\": \"https://lumiere-a.akamaihd.net/v1/images/anakin_skywalker_004_a316c9cb.jpeg?region=154,0,813,813\"\r\n        }\r\n    ],\r\n    \"genre\": 8\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -41,9 +47,15 @@
 					"name": "Add Characters To Movie",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnaWFuZnJhbmNvb2RwMTk5NUBnbWFpbC5jb20iLCJleHAiOjE2NjM0MjYxOTgsImlhdCI6MTY2MzM5MDE5OH0._rE_aNpcLk5Nm55reQysdYrgYDpuge5bA7Npuu1NqDk",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "http://localhost:8080/movies/30/characters/22",
+							"raw": "http://localhost:8080/movies/5/characters/10",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -51,9 +63,9 @@
 							"port": "8080",
 							"path": [
 								"movies",
-								"30",
+								"5",
 								"characters",
-								"22"
+								"10"
 							]
 						}
 					},
@@ -63,9 +75,15 @@
 					"name": "Get By Id",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnaWFuZnJhbmNvb2RwMTk5NUBnbWFpbC5jb20iLCJleHAiOjE2NjM0MjE1ODksImlhdCI6MTY2MzM4NTU4OX0.fqDo24n356XbwdDCTu6nKeL6aYLwxFnGkvfCBNBfM90",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "http://localhost:8080/movies/30",
+							"raw": "http://localhost:8080/movies/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -73,7 +91,7 @@
 							"port": "8080",
 							"path": [
 								"movies",
-								"30"
+								"1"
 							]
 						}
 					},
@@ -86,7 +104,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnaWFuZnJhbmNvb2RwMTk5NUBnbWFpbC5jb20iLCJleHAiOjE2NjM0MjE1ODksImlhdCI6MTY2MzM4NTU4OX0.fqDo24n356XbwdDCTu6nKeL6aYLwxFnGkvfCBNBfM90",
 								"type": "text"
 							}
 						],
@@ -109,9 +127,15 @@
 					"name": "Get By Filters",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnaWFuZnJhbmNvb2RwMTk5NUBnbWFpbC5jb20iLCJleHAiOjE2NjM0MjE1ODksImlhdCI6MTY2MzM4NTU4OX0.fqDo24n356XbwdDCTu6nKeL6aYLwxFnGkvfCBNBfM90",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "http://localhost:8080/movies?idGenre=1&order=ASC",
+							"raw": "http://localhost:8080/movies?title=Inf&idGenre=1&order=DESC",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -123,8 +147,7 @@
 							"query": [
 								{
 									"key": "title",
-									"value": "Movie 19",
-									"disabled": true
+									"value": "Inf"
 								},
 								{
 									"key": "idGenre",
@@ -132,7 +155,7 @@
 								},
 								{
 									"key": "order",
-									"value": "ASC"
+									"value": "DESC"
 								}
 							]
 						}
@@ -143,10 +166,16 @@
 					"name": "Update Movie",
 					"request": {
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnaWFuZnJhbmNvb2RwMTk5NUBnbWFpbC5jb20iLCJleHAiOjE2NjM0MjE1ODksImlhdCI6MTY2MzM4NTU4OX0.fqDo24n356XbwdDCTu6nKeL6aYLwxFnGkvfCBNBfM90",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"movieId\": 31,\r\n    \"title\": \"Movie 31\",\r\n    \"creationDate\": \"1995-03-03T20:00:00\",\r\n    \"rating\": 5,\r\n    \"image\": \"Movie 31\",\r\n    \"genre\": 5\r\n}",
+							"raw": "{\r\n    \"movieId\": 1,\r\n    \"title\": \"Iron-Man II\",\r\n    \"creationDate\": \"2008-04-30\",\r\n    \"rating\": 4,\r\n    \"image\": \"https://www.ecartelera.com/carteles/3100/3120/001_m.jpg\",\r\n    \"genre\": 1\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -154,7 +183,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/movies/31",
+							"raw": "http://localhost:8080/movies/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -162,7 +191,7 @@
 							"port": "8080",
 							"path": [
 								"movies",
-								"31"
+								"1"
 							]
 						}
 					},
@@ -172,9 +201,15 @@
 					"name": "Remove Movie",
 					"request": {
 						"method": "DELETE",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnaWFuZnJhbmNvb2RwMTk5NUBnbWFpbC5jb20iLCJleHAiOjE2NjM0MjE1ODksImlhdCI6MTY2MzM4NTU4OX0.fqDo24n356XbwdDCTu6nKeL6aYLwxFnGkvfCBNBfM90",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "http://localhost:8080/movies/31",
+							"raw": "http://localhost:8080/movies/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -182,7 +217,7 @@
 							"port": "8080",
 							"path": [
 								"movies",
-								"31"
+								"2"
 							]
 						}
 					},
@@ -192,9 +227,15 @@
 					"name": "Remove Character From Movie",
 					"request": {
 						"method": "DELETE",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnaWFuZnJhbmNvb2RwMTk5NUBnbWFpbC5jb20iLCJleHAiOjE2NjM0MjE1ODksImlhdCI6MTY2MzM4NTU4OX0.fqDo24n356XbwdDCTu6nKeL6aYLwxFnGkvfCBNBfM90",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "http://localhost:8080/movies/30/characters/23",
+							"raw": "http://localhost:8080/movies/2/characters/15",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -202,9 +243,9 @@
 							"port": "8080",
 							"path": [
 								"movies",
-								"30",
+								"2",
 								"characters",
-								"23"
+								"15"
 							]
 						}
 					},
@@ -219,10 +260,16 @@
 					"name": "Create Character",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnaWFuZnJhbmNvb2RwMTk5NUBnbWFpbC5jb20iLCJleHAiOjE2NjM0MjYxOTgsImlhdCI6MTY2MzM5MDE5OH0._rE_aNpcLk5Nm55reQysdYrgYDpuge5bA7Npuu1NqDk",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Character 14\",\r\n    \"age\": 100,\r\n    \"weight\": 10,\r\n    \"history\": \"Nothing to tell right now!\",\r\n    \"image\": \"Character 14\"\r\n}",
+							"raw": "{\r\n    \"name\": \"Black Widow\",\r\n    \"age\": 34,\r\n    \"weight\": 61.2,\r\n    \"history\": \"Nothing to tell right now!\",\r\n    \"image\": \"https://lumiere-a.akamaihd.net/v1/images/blueb_007d_g_spa-ar_70x100_43a5cf52.jpeg\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -247,9 +294,15 @@
 					"name": "Get By Id",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnaWFuZnJhbmNvb2RwMTk5NUBnbWFpbC5jb20iLCJleHAiOjE2NjM0MjYxOTgsImlhdCI6MTY2MzM5MDE5OH0._rE_aNpcLk5Nm55reQysdYrgYDpuge5bA7Npuu1NqDk",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "http://localhost:8080/characters/20",
+							"raw": "http://localhost:8080/characters/10",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -257,7 +310,7 @@
 							"port": "8080",
 							"path": [
 								"characters",
-								"20"
+								"10"
 							]
 						}
 					},
@@ -267,7 +320,13 @@
 					"name": "Get All Characters",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnaWFuZnJhbmNvb2RwMTk5NUBnbWFpbC5jb20iLCJleHAiOjE2NjM0MjYxOTgsImlhdCI6MTY2MzM5MDE5OH0._rE_aNpcLk5Nm55reQysdYrgYDpuge5bA7Npuu1NqDk",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "http://localhost:8080/characters/all",
 							"protocol": "http",
@@ -287,9 +346,15 @@
 					"name": "Get By Filters",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnaWFuZnJhbmNvb2RwMTk5NUBnbWFpbC5jb20iLCJleHAiOjE2NjM0MjYxOTgsImlhdCI6MTY2MzM5MDE5OH0._rE_aNpcLk5Nm55reQysdYrgYDpuge5bA7Npuu1NqDk",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "http://localhost:8080/characters?movies=30,28,12",
+							"raw": "http://localhost:8080/characters?name=Man&movies=2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -301,21 +366,20 @@
 							"query": [
 								{
 									"key": "name",
-									"value": "AAAAA",
-									"disabled": true
+									"value": "Man"
 								},
 								{
 									"key": "age",
-									"value": "200",
+									"value": "16",
 									"disabled": true
 								},
 								{
 									"key": "movies",
-									"value": "30,28,12"
+									"value": "2"
 								},
 								{
 									"key": "order",
-									"value": "ASC",
+									"value": "DESC",
 									"disabled": true
 								}
 							]
@@ -327,10 +391,16 @@
 					"name": "Update Character",
 					"request": {
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnaWFuZnJhbmNvb2RwMTk5NUBnbWFpbC5jb20iLCJleHAiOjE2NjM0MjYxOTgsImlhdCI6MTY2MzM5MDE5OH0._rE_aNpcLk5Nm55reQysdYrgYDpuge5bA7Npuu1NqDk",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": 9,\r\n    \"name\": \"Character Relacionado\",\r\n    \"age\": 45,\r\n    \"weight\": 40.5,\r\n    \"history\": \"Nothing to tell right now!\",\r\n    \"image\": \"Character 9\"\r\n}",
+							"raw": "{\r\n    \"id\": 12,\r\n    \"name\": \"Delete this character!!\",\r\n    \"age\": 0,\r\n    \"weight\": 0,\r\n    \"history\": \"Delete this character!!\",\r\n    \"image\": \"Not apply\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -338,7 +408,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/characters/9",
+							"raw": "http://localhost:8080/characters/14",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -346,7 +416,7 @@
 							"port": "8080",
 							"path": [
 								"characters",
-								"9"
+								"14"
 							]
 						}
 					},
@@ -356,9 +426,15 @@
 					"name": "Delete Character",
 					"request": {
 						"method": "DELETE",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnaWFuZnJhbmNvb2RwMTk5NUBnbWFpbC5jb20iLCJleHAiOjE2NjM0MjYxOTgsImlhdCI6MTY2MzM5MDE5OH0._rE_aNpcLk5Nm55reQysdYrgYDpuge5bA7Npuu1NqDk",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "http://localhost:8080/characters/1",
+							"raw": "http://localhost:8080/characters/14",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -366,7 +442,7 @@
 							"port": "8080",
 							"path": [
 								"characters",
-								"1"
+								"14"
 							]
 						}
 					},
@@ -381,10 +457,16 @@
 					"name": "Create Genre",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnaWFuZnJhbmNvb2RwMTk5NUBnbWFpbC5jb20iLCJleHAiOjE2NjM0MTQ5ODQsImlhdCI6MTY2MzM3ODk4NH0.-ytGdvMJlz43htUXcMUK8R31zS93Fblgls1NbK-sEgo",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Genre 12\",\r\n    \"image\": \"Image 12\"\r\n}",
+							"raw": "{\r\n    \"name\": \"Science Fiction\",\r\n    \"image\": \"https://cdn.britannica.com/09/92009-050-122EC720/Enterprise-from-Star-Trek-III-The-Search.jpg\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -409,9 +491,15 @@
 					"name": "Get By Id",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnaWFuZnJhbmNvb2RwMTk5NUBnbWFpbC5jb20iLCJleHAiOjE2NjM0MTQ5ODQsImlhdCI6MTY2MzM3ODk4NH0.-ytGdvMJlz43htUXcMUK8R31zS93Fblgls1NbK-sEgo",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "http://localhost:8080/genres/11",
+							"raw": "http://localhost:8080/genres/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -419,7 +507,7 @@
 							"port": "8080",
 							"path": [
 								"genres",
-								"11"
+								"1"
 							]
 						}
 					},
@@ -429,7 +517,13 @@
 					"name": "Get All Genres",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnaWFuZnJhbmNvb2RwMTk5NUBnbWFpbC5jb20iLCJleHAiOjE2NjM0MTQ5ODQsImlhdCI6MTY2MzM3ODk4NH0.-ytGdvMJlz43htUXcMUK8R31zS93Fblgls1NbK-sEgo",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "http://localhost:8080/genres/all",
 							"protocol": "http",
@@ -449,9 +543,15 @@
 					"name": "Get By Filters",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnaWFuZnJhbmNvb2RwMTk5NUBnbWFpbC5jb20iLCJleHAiOjE2NjM0MTQ5ODQsImlhdCI6MTY2MzM3ODk4NH0.-ytGdvMJlz43htUXcMUK8R31zS93Fblgls1NbK-sEgo",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "http://localhost:8080/genres?name=love&order=ASC",
+							"raw": "http://localhost:8080/genres?name=lov&order=ASC",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -463,7 +563,7 @@
 							"query": [
 								{
 									"key": "name",
-									"value": "love"
+									"value": "lov"
 								},
 								{
 									"key": "order",
@@ -478,10 +578,16 @@
 					"name": "Update Genre",
 					"request": {
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnaWFuZnJhbmNvb2RwMTk5NUBnbWFpbC5jb20iLCJleHAiOjE2NjM0MTQ5ODQsImlhdCI6MTY2MzM3ODk4NH0.-ytGdvMJlz43htUXcMUK8R31zS93Fblgls1NbK-sEgo",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": 12,\r\n    \"name\": \"Genre 12 Modified\",\r\n    \"image\": \"Image 12\"\r\n}",
+							"raw": "{\r\n    \"id\": 2,\r\n    \"name\": \"Animation\",\r\n    \"image\": \"https://www.filmsite.org/images/animated-genre.jpg\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -489,7 +595,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/genres/12",
+							"raw": "http://localhost:8080/genres/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -497,7 +603,7 @@
 							"port": "8080",
 							"path": [
 								"genres",
-								"12"
+								"2"
 							]
 						}
 					},
@@ -507,9 +613,15 @@
 					"name": "Delete Genre",
 					"request": {
 						"method": "DELETE",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnaWFuZnJhbmNvb2RwMTk5NUBnbWFpbC5jb20iLCJleHAiOjE2NjM0MTQ5ODQsImlhdCI6MTY2MzM3ODk4NH0.-ytGdvMJlz43htUXcMUK8R31zS93Fblgls1NbK-sEgo",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "http://localhost:8080/genres/1",
+							"raw": "http://localhost:8080/genres/6",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -517,7 +629,7 @@
 							"port": "8080",
 							"path": [
 								"genres",
-								"1"
+								"6"
 							]
 						}
 					},

@@ -2,7 +2,6 @@ package com.alkemy.disneyapi.mapper;
 
 import com.alkemy.disneyapi.dto.CharacterDTO;
 import com.alkemy.disneyapi.dto.basic.CharacterBasicDTO;
-import com.alkemy.disneyapi.dto.basic.CharacterSlimDTO;
 import com.alkemy.disneyapi.entities.CharacterEntity;
 import com.alkemy.disneyapi.entities.MovieEntity;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,11 +25,10 @@ public class CharacterMapper {
         characterEntity.setWeight(characterDTO.getWeight());
         characterEntity.setHistory(characterDTO.getHistory());
         characterEntity.setImage(characterDTO.getImage());
-        //characterEntity.setMovies(characterDTO.getMovies()); TODO: CORREGIR!!!
         return characterEntity;
     }
 
-    public CharacterDTO characterEntity2DTO(CharacterEntity characterEntity){
+    public CharacterDTO characterEntity2DTO(CharacterEntity characterEntity) {
         CharacterDTO characterDTO = new CharacterDTO();
         characterDTO.setCharacterId(characterEntity.getCharacterId());
         characterDTO.setName(characterEntity.getName());
@@ -42,7 +40,15 @@ public class CharacterMapper {
         return characterDTO;
     }
 
-    public CharacterEntity updateCharacterDTO2Entity(CharacterDTO characterDTO, CharacterEntity characterEntity){
+    public CharacterBasicDTO characterEntity2BasicDTO(CharacterEntity characterEntity) {
+        CharacterBasicDTO characterBasicDTO = new CharacterBasicDTO();
+        characterBasicDTO.setCharacterId(characterEntity.getCharacterId());
+        characterBasicDTO.setName(characterEntity.getName());
+        characterBasicDTO.setImage(characterEntity.getImage());
+        return characterBasicDTO;
+    }
+
+    public CharacterEntity updateCharacterDTO2Entity(CharacterDTO characterDTO, CharacterEntity characterEntity) {
         CharacterEntity characterUpdated = new CharacterEntity();
         characterUpdated.setCharacterId(characterEntity.getCharacterId());
         characterUpdated.setName(characterDTO.getName());
@@ -54,9 +60,9 @@ public class CharacterMapper {
         return characterUpdated;
     }
 
-    public List<CharacterDTO> characterEntityList2DTOList(List<CharacterEntity> characterEntityList){
+    public List<CharacterDTO> characterEntityList2DTOList(List<CharacterEntity> characterEntityList) {
         List<CharacterDTO> dtoList = new ArrayList<>();
-        for (CharacterEntity characterEntity : characterEntityList){
+        for (CharacterEntity characterEntity : characterEntityList) {
             dtoList.add(characterEntity2DTO(characterEntity));
         }
         return dtoList;
@@ -64,59 +70,24 @@ public class CharacterMapper {
 
     public Set<CharacterEntity> characterDTOList2EntityList(Set<CharacterDTO> characterDTOList) {
         Set<CharacterEntity> entityList = new HashSet<>();
-        for (CharacterDTO characterDTO : characterDTOList){
+        for (CharacterDTO characterDTO : characterDTOList) {
             entityList.add(characterDTO2Entity(characterDTO));
         }
         return entityList;
     }
 
-    public Set<CharacterBasicDTO> characterEntityList2BasicDTOList(Set<CharacterEntity> characterEntityList) {
-        Set<CharacterBasicDTO> basicCharacterList = new HashSet<>();
-        for (CharacterEntity characterEntity : characterEntityList){
-            basicCharacterList.add(characterEntity2BasicDTO(characterEntity));
-        }
-        return basicCharacterList;
-    }
-
     public List<CharacterBasicDTO> characterEntityList2BasicDTOList(List<CharacterEntity> characterEntityList) {
         List<CharacterBasicDTO> basicCharacterList = new ArrayList<>();
-        for (CharacterEntity characterEntity : characterEntityList){
+        for (CharacterEntity characterEntity : characterEntityList) {
             basicCharacterList.add(characterEntity2BasicDTO(characterEntity));
         }
         return basicCharacterList;
-    }
-
-    public List<CharacterSlimDTO> characterEntityList2SlimDTOList(List<CharacterEntity> characterEntityList) {
-        List<CharacterSlimDTO> slimCharacterList = new ArrayList<>();
-        for (CharacterEntity characterEntity : characterEntityList){
-            slimCharacterList.add(characterEntity2SlimDTO(characterEntity));
-        }
-        return slimCharacterList;
-    }
-
-    public CharacterBasicDTO characterEntity2BasicDTO (CharacterEntity characterEntity){
-        CharacterBasicDTO characterBasicDTO = new CharacterBasicDTO();
-        characterBasicDTO.setCharacterId(characterEntity.getCharacterId());
-        characterBasicDTO.setName(characterEntity.getName());
-        characterBasicDTO.setAge(characterEntity.getAge());
-        characterBasicDTO.setWeight(characterEntity.getWeight());
-        characterBasicDTO.setHistory(characterEntity.getHistory());
-        characterBasicDTO.setImage(characterEntity.getImage());
-        return characterBasicDTO;
-    }
-
-    public CharacterSlimDTO characterEntity2SlimDTO (CharacterEntity characterEntity){
-        CharacterSlimDTO characterSlimDTO = new CharacterSlimDTO();
-        characterSlimDTO.setCharacterId(characterEntity.getCharacterId());
-        characterSlimDTO.setName(characterEntity.getName());
-        characterSlimDTO.setImage(characterEntity.getImage());
-        return characterSlimDTO;
     }
 
     public Set<CharacterDTO> generateBasicCharacters(MovieEntity movieEntity) {
         Set<CharacterDTO> basicCharacters = new HashSet<>();
         Set<CharacterEntity> charactersEntity = movieEntity.getCharacters();
-        for (CharacterEntity character : charactersEntity){
+        for (CharacterEntity character : charactersEntity) {
             CharacterDTO characterTemp = new CharacterDTO();
             characterTemp.setCharacterId(character.getCharacterId());
             characterTemp.setName(character.getName());
@@ -128,4 +99,5 @@ public class CharacterMapper {
         }
         return basicCharacters;
     }
+
 }

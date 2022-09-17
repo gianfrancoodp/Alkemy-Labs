@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface GenreRepository extends JpaRepository<GenreEntity,Long> {
+public interface GenreRepository extends JpaRepository<GenreEntity, Long> {
 
     List<GenreEntity> findAll(Specification<GenreEntity> spec);
 

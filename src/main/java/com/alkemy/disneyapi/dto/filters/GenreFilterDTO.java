@@ -19,7 +19,7 @@ public class GenreFilterDTO {
         return this.order.compareToIgnoreCase("ASC") == 0;
     }
 
-    public boolean isDESC(){
+    public boolean isDESC() {
         return this.order.compareToIgnoreCase("DESC") == 0;
     }
 }
