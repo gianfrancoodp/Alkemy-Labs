@@ -38,8 +38,13 @@ Development of a API REST using Java and Spring Boot. This project corresponds t
 ![Logo](https://camo.githubusercontent.com/cc923f519791b2a0c3120adf0a13c9d89b3aa8344b74adf726c851be82c64395/68747470733a2f2f692e696d6775722e636f6d2f767569525271582e706e67)
 # Screenshots
 
-![App Screenshot](https://github.com/gianfrancoodp/Alkemy-Labs/blob/main/readme%20images/API-Structure.png)
+## Endpoints
 ![App Screenshot](https://github.com/gianfrancoodp/Alkemy-Labs/blob/main/readme%20images/endpoints.png)
+
+## API Structure
+![App Screenshot](https://github.com/gianfrancoodp/Alkemy-Labs/blob/main/readme%20images/API-Structure.png)
+
+## DER
 ![App Screenshot](https://github.com/gianfrancoodp/Alkemy-Labs/blob/main/readme%20images/DER.png)
 ## References
 
