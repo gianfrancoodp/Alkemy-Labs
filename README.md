@@ -13,6 +13,8 @@ Development of a API REST using Java and Spring Boot. This project corresponds t
 
 * Spring Security
 
+* Spring Data JPA
+
 * JWT
 
 * Lombok
